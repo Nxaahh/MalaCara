@@ -8,6 +8,7 @@ import {DashboardComponent} from './components/dashboard/dashboard';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet,RegisterComponent, LoginComponent,DashboardComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'

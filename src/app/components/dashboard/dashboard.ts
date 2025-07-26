@@ -51,8 +51,8 @@ export class DashboardComponent implements OnInit {
     const start = new Date(year, month - 1, day, hourStart, minuteStart);
     let end = new Date(year, month - 1, day, hourEnd, minuteEnd);
 
-    if (end < start) {
-      // Fiesta que termina después de medianoche
+    // Si la hora de fin es menor o igual que la hora de inicio, asumimos que termina al día siguiente
+    if (end <= start) {
       end.setDate(end.getDate() + 1);
     }
 
@@ -60,6 +60,8 @@ export class DashboardComponent implements OnInit {
     if (now >= start && now <= end) return 'ongoing';
     return 'ended';
   }
+
+
   addParty() {
     this.router.navigate(['/create-party']);
   }

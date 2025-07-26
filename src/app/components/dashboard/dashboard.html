@@ -1,0 +1,60 @@
+<div class="container my-4">
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center mb-4">
+    <div class="logo d-flex align-items-center">
+      <img src="logo.png" alt="MalaCara Logo" class="me-3" style="width: 50px; height: 50px;">
+
+    </div>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-dark" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">Eventos</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">Contacto</a></li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="btn btn-outline-danger btn-sm" (click)="addParty()">Añadir Fiesta</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Bienvenida -->
+  <section class="mb-5 text-center">
+    <h2>¡Bienvenido a MalaCara!</h2>
+    <p class="lead">El mejor lugar para disfrutar de la noche en Morón. Música, fiesta y buen ambiente.</p>
+  </section>
+
+  <!-- Próximas fiestas (hueco) -->
+  <section>
+    <h3 class="mb-3">Próximas fiestas</h3>
+
+    <div *ngIf="isLoading" class="alert alert-info text-center">Cargando fiestas...</div>
+
+    <div *ngIf="!isLoading && parties.length === 0" class="alert alert-secondary text-center">
+      No hay fiestas próximas.
+    </div>
+
+    <ul *ngIf="parties.length > 0" class="list-group">
+      <li *ngFor="let party of parties" class="list-group-item"
+          [ngClass]="getPartyStatus(party)">
+        <strong>{{ party.name }}</strong> - {{ party.date }} - Hasta las {{ party.endTime }}
+        <span class="badge float-end" [ngClass]="{
+        'bg-success': getPartyStatus(party) === 'ongoing',
+        'bg-primary': getPartyStatus(party) === 'upcoming',
+        'bg-secondary': getPartyStatus(party) === 'ended'
+      }">
+        {{ getPartyStatus(party) === 'ongoing' ? 'En curso' : (getPartyStatus(party) === 'upcoming' ? 'Próxima' : 'Finalizada') }}
+      </span>
+      </li>
+    </ul>
+
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="mt-5 text-center text-muted">
+    &copy; 2025 MalaCara Discoteca. Todos los derechos reservados.
+  </footer>
+</div>

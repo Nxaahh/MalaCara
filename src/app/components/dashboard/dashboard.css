@@ -1,0 +1,62 @@
+body {
+  background-color: #fff8f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #e2400c;
+}
+
+/* Header sombra suave y fondo */
+header {
+  background: #fff3f0;
+  padding: 10px 15px;
+  box-shadow: 0 2px 6px rgba(226, 64, 12, 0.15);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+/* Logo imagen con transición */
+.logo img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Navegación links */
+a.nav-link {
+  color: #333;
+  transition: color 0.3s ease;
+}
+a.nav-link:hover {
+  color: #b32f08;
+  text-decoration: underline;
+}
+
+/* Botón con sombra y transición */
+button.btn-outline-danger {
+  border-color: #e2400c;
+  color: #e2400c;
+  box-shadow: 0 2px 5px rgba(226, 64, 12, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+button.btn-outline-danger:hover {
+  background-color: #e2400c;
+  color: white;
+  box-shadow: 0 5px 15px rgba(226, 64, 12, 0.6);
+}
+
+/* Fade-in animación para el contenedor principal */
+.container {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

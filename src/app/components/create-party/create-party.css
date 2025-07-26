@@ -1,0 +1,94 @@
+.create-party-container {
+  min-height: 100vh;
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.create-party-card {
+  background-color: #2b2b2b;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(226, 64, 12, 0.3);
+  border: 1px solid #e2400c;
+  border-radius: 10px;
+  color: white;
+}
+
+.logo-face {
+  font-size: 4rem;
+  color: #000;
+  background-color: #e2400c;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: monospace;
+  transform: rotate(-5deg);
+  margin-bottom: 1rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #e2400c;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #e2400c;
+  font-family: monospace;
+}
+
+.form-group input,
+.form-group select {
+  background-color: #1c1c1c;
+  border: 1px solid #e2400c;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-family: monospace;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ff4500;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #e2400c;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:disabled {
+  background-color: #7a7a7a;
+  cursor: not-allowed;
+}
+
+.btn-login:hover:not(:disabled) {
+  background-color: white;
+  color: #e2400c;
+  border: 1px solid #e2400c;
+}

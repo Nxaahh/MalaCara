@@ -1,0 +1,68 @@
+<div class="create-party-container">
+  <div class="create-party-card">
+    <h2 class="logo-face">:(</h2>
+    <h3 class="title">Crear Fiesta</h3>
+
+    <form (ngSubmit)="onSubmit()" #partyForm="ngForm" enctype="multipart/form-data">
+
+      <!-- Nombre -->
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required [(ngModel)]="party.name" />
+      </div>
+
+      <!-- Lugar -->
+      <div class="form-group">
+        <label for="place">Lugar</label>
+        <input type="text" id="place" name="place" required [(ngModel)]="party.place" />
+      </div>
+
+      <!-- Día -->
+      <div class="form-group">
+        <label for="date">Día</label>
+        <input type="date" id="date" name="date" required [(ngModel)]="party.date" />
+      </div>
+
+      <!-- Hora inicio -->
+      <div class="form-group">
+        <label for="startTime">Hora de inicio</label>
+        <input type="time" id="startTime" name="startTime" required [(ngModel)]="party.startTime" />
+      </div>
+
+      <!-- Hora fin -->
+      <div class="form-group">
+        <label for="endTime">Hora de fin</label>
+        <input type="time" id="endTime" name="endTime" required [(ngModel)]="party.endTime" />
+      </div>
+
+      <!-- Entradas disponibles -->
+      <div class="form-group">
+        <label for="tickets">Entradas disponibles</label>
+        <select id="tickets" name="tickets" [(ngModel)]="party.ticketsAvailable">
+          <option [value]="true">Sí</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+
+      <!-- Estilo de ropa -->
+      <div class="form-group">
+        <label for="dressCode">Estilo de ropa</label>
+        <input type="text" id="dressCode" name="dressCode" [(ngModel)]="party.dressCode" />
+      </div>
+
+      <!-- Tipo de música -->
+      <div class="form-group">
+        <label for="musicType">Tipo de música</label>
+        <input type="text" id="musicType" name="musicType" [(ngModel)]="party.musicType" />
+      </div>
+
+      <!-- Fotos (opcional) -->
+      <div class="form-group">
+        <label for="photos">Fotos (opcional)</label>
+        <input type="file" id="photos" name="photos" (change)="onFileChange($event)" multiple accept="image/*" />
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="partyForm.invalid">Crear Fiesta</button>
+    </form>
+  </div>
+</div>

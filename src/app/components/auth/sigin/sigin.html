@@ -1,1 +1,18 @@
-<p>sigin works!</p>
+<div class="container mt-4">
+  <h3>Registrar nuevo gerente</h3>
+  <form (ngSubmit)="onRegister()">
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Nombre (opcional)</label>
+      <input type="text" [(ngModel)]="name" name="name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar gerente</button>
+  </form>
+</div>

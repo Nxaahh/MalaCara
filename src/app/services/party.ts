@@ -13,11 +13,10 @@ export class PartyService {
     this.partiesRef = ref(this.db, 'parties');
   }
 
-  addParty(party: Party): Promise<void> {
-    const newPartyRef = push(this.partiesRef);
-    party.id = newPartyRef.key!;
-    party.createdAt = new Date().toISOString();
-    return set(newPartyRef, party);
+  async createParty(party: any): Promise<void> {
+    const db = getDatabase();
+    const partiesRef = ref(db, 'parties');
+    await push(partiesRef, party);
   }
   getParties(): Promise<Party[]> {
     return new Promise((resolve, reject) => {

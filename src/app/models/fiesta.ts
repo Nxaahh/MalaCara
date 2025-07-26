@@ -11,5 +11,5 @@ export interface Party {
   description?: string;
   imageUrl?: string;
   createdAt?: string;
-  photos: string[];
+  photo: string;
 }

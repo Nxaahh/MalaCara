@@ -4,7 +4,6 @@
     <h3 class="title">Crear Fiesta</h3>
 
     <form (ngSubmit)="onSubmit()" #partyForm="ngForm" enctype="multipart/form-data">
-
       <!-- Nombre -->
       <div class="form-group">
         <label for="name">Nombre</label>
@@ -56,10 +55,18 @@
         <input type="text" id="musicType" name="musicType" [(ngModel)]="party.musicType" />
       </div>
 
-      <!-- Fotos (opcional) -->
+      <!-- Foto -->
       <div class="form-group">
-        <label for="photos">Fotos (opcional)</label>
-        <input type="file" id="photos" name="photos" (change)="onFileChange($event)" multiple accept="image/*" />
+        <label for="photo">Foto de portada</label>
+        <input type="file" id="photo" name="photo" (change)="onFileChange($event)" accept="image/*" />
+      </div>
+
+      <!-- Vista previa -->
+      <div class="form-group" *ngIf="imagePreview">
+        <label>Vista previa:</label>
+        <div class="preview-circle">
+          <img ngSrc="imagePreview" alt="Preview" />
+        </div>
       </div>
 
       <button type="submit" class="btn-login" [disabled]="partyForm.invalid">Crear Fiesta</button>

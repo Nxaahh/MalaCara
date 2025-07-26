@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PartyService } from '../../services/party';
 import { Party } from '../../models/fiesta';
 import {Router} from '@angular/router';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {DatePipe, NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {AuthService} from '../../services/auth';
 
 @Component({
@@ -15,6 +15,8 @@ import {AuthService} from '../../services/auth';
     NgClass,
     NgForOf,
     NgIf,
+    NgStyle,
+    DatePipe,
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -65,4 +67,20 @@ export class DashboardComponent implements OnInit {
   addParty() {
     this.router.navigate(['/create-party']);
   }
+
+  currentIndex = 0;
+
+  next() {
+    if (this.currentIndex < this.parties.length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+
 }

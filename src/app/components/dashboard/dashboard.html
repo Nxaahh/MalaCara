@@ -26,30 +26,39 @@
 
   <!-- Próximas fiestas (hueco) -->
   <section>
-    <h3 class="mb-3">Próximas fiestas</h3>
-
-    <div *ngIf="isLoading" class="alert alert-info text-center">Cargando fiestas...</div>
-
-    <div *ngIf="!isLoading && parties.length === 0" class="alert alert-secondary text-center">
-      No hay fiestas próximas.
+    <h3 class="mb-3">Próximos eventos</h3>
+    <div class="row" [attr.data-count]="parties.length">
+      <div class="event-col" *ngFor="let party of parties">
+        <div class="event-card d-flex bg-light rounded shadow-sm overflow-hidden">
+          <div class="event-img flex-shrink-0">
+            <img
+              [src]="party.photo || 'https://via.placeholder.com/300x400?text=Evento'"
+              alt="Imagen evento"
+              class="img-fluid h-100"
+            />
+          </div>
+          <div class="event-info p-3 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <div class="event-date bg-secondary text-white px-2 py-1 rounded mb-2 text-center small">
+                {{ party.date | date:'EEE, d MMM' }}
+              </div>
+              <h5 class="fw-bold mb-2 text-uppercase">{{ party.name }}</h5>
+              <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>{{ party.place }}</p>
+              <p class="mb-1"><i class="bi bi-clock-fill me-2"></i>{{ party.startTime }} - {{ party.endTime }}</p>
+            </div>
+            <div class="tags mt-3">
+              <span class="badge bg-light text-muted me-1 small">{{ party.dressCode }}</span>
+              <span class="badge bg-light text-muted me-1 small">{{ party.musicType }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <ul *ngIf="parties.length > 0" class="list-group">
-      <li *ngFor="let party of parties" class="list-group-item"
-          [ngClass]="getPartyStatus(party)">
-        <strong>{{ party.name }}</strong> - {{ party.date }} - Hasta las {{ party.endTime }}
-        <span class="badge float-end" [ngClass]="{
-        'bg-success': getPartyStatus(party) === 'ongoing',
-        'bg-primary': getPartyStatus(party) === 'upcoming',
-        'bg-secondary': getPartyStatus(party) === 'ended'
-      }">
-        {{ getPartyStatus(party) === 'ongoing' ? 'En curso' : (getPartyStatus(party) === 'upcoming' ? 'Próxima' : 'Finalizada') }}
-      </span>
-      </li>
-    </ul>
-
-    <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
   </section>
+
+
+
+
 
 
 

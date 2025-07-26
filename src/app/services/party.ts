@@ -23,6 +23,8 @@ export class PartyService {
       const db = getDatabase();
       const partiesRef = ref(db, 'parties');
 
+
+
       onValue(partiesRef, (snapshot) => {
         const partiesObj = snapshot.val();
         if (!partiesObj) {

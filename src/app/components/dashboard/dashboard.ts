@@ -68,19 +68,15 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/create-party']);
   }
 
-  currentIndex = 0;
 
-  next() {
-    if (this.currentIndex < this.parties.length - 1) {
-      this.currentIndex++;
-    }
+
+
+
+
+
+  openContact() {
+    // Redirige a una sección o abre un modal de contacto (ajusta según tu lógica)
+    this.router.navigate(['/contacto']);
   }
-
-  prev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-
 
 }

@@ -1,0 +1,68 @@
+/* Contenedor del formulario */
+.container {
+  max-width: 600px;
+  background-color: #fff7f2; /* tono suave claro */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(226, 64, 12, 0.3); /* sombra sutil naranja */
+}
+
+/* Título centrado y con color */
+h2 {
+  color: #e2400c;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo de las etiquetas */
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs y textarea */
+input.form-control,
+textarea.form-control {
+  border: 2px solid #e2400c;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  border-color: #b92a00;
+  box-shadow: 0 0 5px #e2400c;
+  outline: none;
+}
+
+/* Botón enviar */
+button.btn-danger {
+  background-color: #e2400c;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-danger:hover:not(:disabled) {
+  background-color: #b92a00;
+}
+
+/* Deshabilitado */
+button:disabled {
+  background-color: #f7a891;
+  cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+.alert-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
